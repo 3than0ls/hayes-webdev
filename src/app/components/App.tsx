@@ -3,11 +3,8 @@
 import React, { useState } from "react";
 import FileUpload from "./FileUpload";
 import Output from "./Output";
-import Footer from "./Footer";
 
-type Props = {};
-
-const App = (props: Props) => {
+const App = () => {
   const [outputStdout, setOutputStdout] = useState("");
   const [outputStderr, setOutputStderr] = useState("");
 

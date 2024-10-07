@@ -1,5 +1,3 @@
-import Image from "next/image";
-import FileUpload from "./components/FileUpload";
 import App from "./components/App";
 import Footer from "./components/Footer";
 
