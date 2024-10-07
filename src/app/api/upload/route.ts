@@ -1,33 +1,38 @@
 "use server";
 
-import { PutObjectCommand, S3Client } from "@aws-sdk/client-s3";
 import { NextRequest, NextResponse } from "next/server";
+import { exec } from "node:child_process";
+import { dir } from "node:console";
+import * as fs from "node:fs/promises";
 
 export async function POST(request: NextRequest) {
   const formData = await request.formData();
   const file = formData.get("file") as File;
 
-  const s3 = new S3Client({
-    region: process.env.AWS_REGION,
-    credentials: {
-      accessKeyId: process.env.AWS_ACCESS_KEY_ID!,
-      secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY!,
-    },
-  });
+  const data = await file.text();
 
-  const key = new Date().toISOString() + file.name;
+  // const fName = "temp";
+  // const fPath = `./${fName}.txt`;
 
-  await s3.send(
-    new PutObjectCommand({
-      Bucket: process.env.BUCKET!,
-      Key: key,
-      Body: (await file.arrayBuffer()) as Buffer,
-      // Expires:
-    })
-  );
+  // console.log("body", data);
 
-  console.log("hello");
-  console.log(await file.text());
+  // console.log("writing to file");
+  // await fs.writeFile(fPath, data);
+
+  // // console.log(await fs.readdir("./backend"));
+  // const command = `bash "./backend/backend.sh" ${fPath}`;
+  // // const command = 'echo "The \\$HOME variable is $HOME"';
+  // exec(command, (e, stdout, stderr) => {
+  //   if (e) {
+  //     console.error("ERROR", e);
+  //     return;
+  //   }
+  //   console.log("STDOUT", stdout);
+  //   console.error("STDERR", stderr);
+  // });
+
+  // const out = (await fs.readFile(fPath)).toString();
+  // console.log("reading from file:", out);
 
   return NextResponse.json("valid", { status: 200 });
 }
