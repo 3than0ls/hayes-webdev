@@ -15,10 +15,13 @@ const App = (props: Props) => {
 
   return (
     <div className="flex flex-col bg-white w-full text-black flex-grow gap-4 justify-center items-center p-24">
-      <h1 className="text-2xl text-left w-full">
+      <a
+        href="https://ics.uci.edu/~wayne/research/students/#CS-systems"
+        className="underline text-2xl text-left w-full"
+      >
         Hayes&apos; Non-scientific sub-project: &ldquo;web front-ends,
         submission management, web drives&rdquo;{" "}
-      </h1>
+      </a>
       <div className="w-full h-full flex flex-col md:flex-row">
         <FileUpload
           onStart={() => {
