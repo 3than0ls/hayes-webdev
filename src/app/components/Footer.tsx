@@ -7,8 +7,11 @@ const Footer = () => {
       <div>echennau@uci.edu</div>
       <a
         className="ml-auto underline"
-        href="https://github.com/3than0ls/hayes-webdev"
+        href="https://docs.google.com/document/d/1KHtpNNnKgAgwF31PxAv8N50kmhFOcdvreF7BJce4sTc/edit?usp=sharing"
       >
+        Project Summary
+      </a>
+      <a className="underline" href="https://github.com/3than0ls/hayes-webdev">
         GitHub
       </a>
     </div>

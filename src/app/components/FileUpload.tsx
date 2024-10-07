@@ -61,7 +61,7 @@ const FileUpload = ({ onStart, onFinish }: FileUploadProps) => {
           className="px-2 py-1 border border-black bg-white"
           type="submit"
         >
-          submit
+          Submit
         </button>
       </form>
       <pre className="bg-white p-2 h-full overflow-auto">
